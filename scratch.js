@@ -97,7 +97,7 @@ class RaspberryJamMod {
                     "arguments": {
                         "ip": {
                             "type": "string",
-                            "defaultValue": "192.168.1.239"
+                            "defaultValue": "localhost"
                         },
                     }
             },
@@ -789,10 +789,6 @@ class RaspberryJamMod {
     };
 
     sendAndReceive(msg) {
-        if (!("TextEncoder" in window)) 
-            alert("Sorry, this browser does not support TextEncoder...");
-        var enc = new TextEncoder(); // always utf-8
-
         var rjm = this;
         return new Promise(function(resolve, reject) {            
             rjm.socket.onmessage = function(event) {
